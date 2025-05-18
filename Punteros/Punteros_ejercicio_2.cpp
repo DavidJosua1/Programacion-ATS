@@ -19,7 +19,7 @@ void numero_primo(int* a){
             band='F';
         }
     }
-    if(band=='V'){
+    if(band=='V' && *a!=1){
         cout<<"el numero es primo\n";
         cout<<"su dirección de memoria es: "<<a<<endl;
     }else{
