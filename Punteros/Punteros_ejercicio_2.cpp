@@ -5,7 +5,7 @@ void numero_primo(int*);
 
 int main(){
     int a;
-    cout<<"ingres el numero:\n";cin>>a;
+    cout<<"ingrese el numero:\n";cin>>a;
     numero_primo(&a);
 
     return 0;

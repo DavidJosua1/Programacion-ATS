@@ -92,7 +92,7 @@ char Funcion_para_saber_si_la_matriz_reflexiva(int B[][100],int x){
     }
     return flag;
 }
-int Funcion_recursiva_para_encontrar_la_matriz_reflexiva(int x,double A[][100],int y,int w,int B[][100],int n){
+int Funcion_recursiva_para_encontrar_la_matriz_reflexiva(int x,double A[][100],int y,int w,int B[][100],int n){ 
     Generar_matriz_aleatoria(x,A,y,w);
     cout<<endl;
     Imprimir_la_matriz_aleatoria(x,A);
