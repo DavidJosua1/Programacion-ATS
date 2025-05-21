@@ -12,6 +12,7 @@ void disyuncion_de_matrices(int&,int&,int&,int&,int[],int[],int[][1000],int[][10
 void conjuncion_de_matrices(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void producto_de_matrices(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void encontrar_matriz_reflexiva(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
+void encontrar_matriz_irreflexiva(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void imprimir_matriz(int[][1000],int);
 void imprimir_matriz1(int[][1000],int);
 
@@ -30,6 +31,9 @@ int main(){
     case 3:producto_de_matrices(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
         break;
     case 4:encontrar_matriz_reflexiva(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
+        break;
+    case 5:encontrar_matriz_irreflexiva(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
+        break;
     default:
         break;
     }
@@ -231,6 +235,33 @@ void encontrar_matriz_reflexiva(int& i_inferior, int& i_superior, int& n_element
         imprimir_matriz(A,n_filas);
         for(int i=0;i<n_filas;i++){
              if(A[i][i]==1){
+                cont++;
+             }
+        }
+        if(cont==n_filas){
+            Reflexiva=false;
+        }
+        cout<<endl;
+    }
+    cout<<"el numero de iteraciones necesarias4 fue: "<<iteraciones<<endl;
+}
+void encontrar_matriz_irreflexiva(int& i_inferior, int& i_superior, int& n_elementos, int& n_filas, int X[], int Y[], int A[][1000],int B[][1000]){
+    calcular_intervalo_aleatorio(&i_inferior, &i_superior);
+    cout<<"\n\n";
+    bool Reflexiva=true;
+    int iteraciones=0;
+    while (Reflexiva)
+    {   
+        iteraciones++;
+        int cont=0;
+        cout<<"iteracion numero: "<<iteraciones;
+        determinar_numero_de_elementos_de_la_relacion(&n_elementos, &n_filas, i_superior, i_inferior);
+        generar_relacio_aleatoria(X, Y, n_elementos, i_superior, i_inferior);
+        imprimir_relacion(X, Y, n_elementos);
+        convertir_a_booleana(n_filas, i_superior, i_inferior, n_elementos, A, X, Y);
+        imprimir_matriz(A,n_filas);
+        for(int i=0;i<n_filas;i++){
+             if(A[i][i]==0){
                 cont++;
              }
         }
