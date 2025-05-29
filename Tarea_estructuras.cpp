@@ -13,6 +13,8 @@ void conjuncion_de_matrices(int&,int&,int&,int&,int[],int[],int[][1000],int[][10
 void producto_de_matrices(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void encontrar_matriz_reflexiva(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void encontrar_matriz_irreflexiva(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
+void encontrar_matriz_simetrica(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
+void encontrar_matriz_antisimetrica(int&,int&,int&,int&,int[],int[],int[][1000],int[][1000]);
 void imprimir_matriz(int[][1000],int);
 void imprimir_matriz1(int[][1000],int);
 
@@ -21,6 +23,14 @@ int main(){
     int i_inferior,i_superior,n_elementos,n_filas,x;
     srand(time(NULL));
     cout<<"\ningrese un numero dependiendo de lo que busque\n";
+    cout<<"1 para disyuncion de matrices\n";
+    cout<<"2 para conjuncion de matrices\n";
+    cout<<"3 para producto de matrices\n";
+    cout<<"4 para encontrar matriz reflexiva\n";
+    cout<<"5 para encontrar matriz irreflexiva\n";
+    cout<<"6 para matriz simetrica\n";
+    cout<<"7 para matriz antisimetrica\n";
+    
     cin>>x;
     switch (x)
     {
@@ -34,6 +44,9 @@ int main(){
         break;
     case 5:encontrar_matriz_irreflexiva(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
         break;
+    case 6:encontrar_matriz_simetrica(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
+        break;
+    case 7:encontrar_matriz_antisimetrica(i_inferior,i_superior,n_elementos,n_filas,X,Y,A,B);
     default:
         break;
     }
@@ -270,5 +283,60 @@ void encontrar_matriz_irreflexiva(int& i_inferior, int& i_superior, int& n_eleme
         }
         cout<<endl;
     }
+    cout<<"el numero de iteraciones necesarias4 fue: "<<iteraciones<<endl;
+}
+void encontrar_matriz_simetrica(int& i_inferior, int& i_superior, int& n_elementos, int& n_filas, int X[], int Y[], int A[][1000],int B[][1000]){
+    calcular_intervalo_aleatorio(&i_inferior, &i_superior);
+    cout<<"\n\n";
+    bool Reflexiva=true;
+    int iteraciones=0;
+    while (Reflexiva)
+    {   
+        iteraciones++;
+        Reflexiva=false;
+        int cont=0;
+        cout<<"iteracion numero: "<<iteraciones;
+        determinar_numero_de_elementos_de_la_relacion(&n_elementos, &n_filas, i_superior, i_inferior);
+        generar_relacio_aleatoria(X, Y, n_elementos, i_superior, i_inferior);
+        imprimir_relacion(X, Y, n_elementos);
+        convertir_a_booleana(n_filas, i_superior, i_inferior, n_elementos, A, X, Y);
+        imprimir_matriz(A,n_filas);
+        for(int i=0;i<n_filas;i++){
+            for(int j=0;j<n_filas;j++){
+                if(A[i][j]==1&&A[j][i]==0){
+                Reflexiva=true;
+                }
+             }
+            }
+        }
+        cout<<endl;
+    cout<<"el numero de iteraciones necesarias4 fue: "<<iteraciones<<endl;
+}
+
+void encontrar_matriz_antisimetrica(int& i_inferior, int& i_superior, int& n_elementos, int& n_filas, int X[], int Y[], int A[][1000],int B[][1000]){
+    calcular_intervalo_aleatorio(&i_inferior, &i_superior);
+    cout<<"\n\n";
+    bool Reflexiva=true;
+    int iteraciones=0;
+    while (Reflexiva)
+    {   
+        iteraciones++;
+        Reflexiva=false;
+        int cont=0;
+        cout<<"iteracion numero: "<<iteraciones;
+        determinar_numero_de_elementos_de_la_relacion(&n_elementos, &n_filas, i_superior, i_inferior);
+        generar_relacio_aleatoria(X, Y, n_elementos, i_superior, i_inferior);
+        imprimir_relacion(X, Y, n_elementos);
+        convertir_a_booleana(n_filas, i_superior, i_inferior, n_elementos, A, X, Y);
+        imprimir_matriz(A,n_filas);
+        for(int i=0;i<n_filas;i++){
+            for(int j=0;j<n_filas;j++){
+                if(A[i][j]==1&&A[j][i]==1){
+                Reflexiva=true;
+                }
+             }
+            }
+        }
+        cout<<endl;
     cout<<"el numero de iteraciones necesarias4 fue: "<<iteraciones<<endl;
 }

@@ -3,6 +3,7 @@
         "iostream": "cpp",
         "random": "cpp",
         "problema_de_votos": "cpp",
-        "asd": "cpp"
+        "asd": "cpp",
+        "toquenizacion_de_cadena": "cpp"
     }
 }
