@@ -8,6 +8,7 @@ void Imprimir_la_matriz_aleatoria(int,double[][100]);
 void Funcion_para_convertir_la_matriz_en_booleana(int,int[][100],double[][100]);
 void Imprimir_la_matriz_booleana(int,int[][100]);
 char Funcion_para_saber_si_la_matriz_reflexiva(int[][100]);
+holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 int Funcion_recursiva_para_encontrar_la_matriz_reflexiva(int,double[][100],int,int,int[][100],int);
 
 int main() {
